@@ -1,4 +1,7 @@
 const Footer = () => {
+  const handleClick = () => {
+    console.log("Clicked")
+  }
   return (
     <footer className="py-4 px-4 mt-8">
       {/* Pagination section */}
@@ -42,15 +45,15 @@ const Footer = () => {
 
         <div className="flex items-center space-x-6">
           <div className="flex items-center space-x-6 text-sm">
-            <a href="#" className="text-gray-400 hover:text-white">
+            <button onClick={handleClick} className="text-gray-400 hover:text-white">
               Advertise
-            </a>
-            <a href="#" className="text-gray-400 hover:text-white">
+            </button>
+            <button onClick={handleClick} className="text-gray-400 hover:text-white">
               Listing
-            </a>
-            <a href="#" className="text-gray-400 hover:text-white">
+            </button>
+            <button onClick={handleClick} className="text-gray-400 hover:text-white">
               Support
-            </a>
+            </button>
             <div className="relative group">
               <button className="text-gray-400 hover:text-white flex items-center">
                 Legal

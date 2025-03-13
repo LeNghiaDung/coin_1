@@ -1,11 +1,13 @@
-"use client"
 
 import { useState, useEffect } from "react"
 import { ArrowUp, ArrowDown, ExternalLink } from "lucide-react"
 import CoinChart from "./CoinChart"
-
+const handleClick = () => {
+  console.log("Clicked")
+}
 // Mock data for different coins
 const coinData = {
+  
   1: {
     id: 1,
     name: "POM",
@@ -205,21 +207,21 @@ const CoinDetailPage = ({ coinId }) => {
               <div className="bg-[#1a1f27] rounded-lg p-3 md:p-4">
                 <div className="flex justify-between py-2 border-b border-gray-800 text-sm md:text-base">
                   <span className="text-gray-400">Website</span>
-                  <a href="#" className="text-blue-400 hover:underline">
+                  <button onClick={handleClick} className="text-blue-400 hover:underline">
                     {coin.website}
-                  </a>
+                  </button>
                 </div>
                 <div className="flex justify-between py-2 border-b border-gray-800 text-sm md:text-base">
                   <span className="text-gray-400">Twitter</span>
-                  <a href="#" className="text-blue-400 hover:underline">
+                  <button onClick={handleClick} className="text-blue-400 hover:underline">
                     {coin.twitter}
-                  </a>
+                  </button>
                 </div>
                 <div className="flex justify-between py-2 text-sm md:text-base">
                   <span className="text-gray-400">Telegram</span>
-                  <a href="#" className="text-blue-400 hover:underline">
+                  <button onClick={handleClick} className="text-blue-400 hover:underline">
                     {coin.telegram}
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
@@ -266,9 +268,9 @@ const CoinDetailPage = ({ coinId }) => {
                   <td className="py-3 px-2 md:px-4 md:py-4">{coin.price}</td>
                   <td className="py-3 px-2 md:px-4 md:py-4 hidden md:table-cell">$120,456</td>
                   <td className="py-3 px-2 md:px-4 md:py-4">
-                    <a href="#" className="text-blue-400 hover:underline">
+                    <button onClick={handleClick} className="text-blue-400 hover:underline">
                       Trade
-                    </a>
+                    </button>
                   </td>
                 </tr>
                 <tr className="border-b border-gray-800 text-xs md:text-sm">
@@ -277,9 +279,9 @@ const CoinDetailPage = ({ coinId }) => {
                   <td className="py-3 px-2 md:px-4 md:py-4">{coin.price}</td>
                   <td className="py-3 px-2 md:px-4 md:py-4 hidden md:table-cell">$98,765</td>
                   <td className="py-3 px-2 md:px-4 md:py-4">
-                    <a href="#" className="text-blue-400 hover:underline">
+                    <button onClick={handleClick} className="text-blue-400 hover:underline">
                       Trade
-                    </a>
+                    </button>
                   </td>
                 </tr>
                 <tr className="border-b border-gray-800 text-xs md:text-sm">
@@ -288,9 +290,9 @@ const CoinDetailPage = ({ coinId }) => {
                   <td className="py-3 px-2 md:px-4 md:py-4">{coin.price}</td>
                   <td className="py-3 px-2 md:px-4 md:py-4 hidden md:table-cell">$76,543</td>
                   <td className="py-3 px-2 md:px-4 md:py-4">
-                    <a href="#" className="text-blue-400 hover:underline">
+                    <button onClick={handleClick} className="text-blue-400 hover:underline">
                       Trade
-                    </a>
+                    </button>
                   </td>
                 </tr>
               </tbody>
@@ -307,9 +309,9 @@ const CoinDetailPage = ({ coinId }) => {
               <h3 className="font-medium mb-2 md:mb-3 flex items-center text-sm md:text-base">
                 <span className="mr-2">🐦</span> Twitter
               </h3>
-              <a href="#" className="text-blue-400 hover:underline mb-2 block text-sm md:text-base">
+              <button onClick={handleClick} className="text-blue-400 hover:underline mb-2 block text-sm md:text-base">
                 {coin.twitter}
-              </a>
+              </button>
               <p className="text-gray-300 text-xs md:text-sm">Follow for the latest updates and announcements</p>
             </div>
 
@@ -317,9 +319,9 @@ const CoinDetailPage = ({ coinId }) => {
               <h3 className="font-medium mb-2 md:mb-3 flex items-center text-sm md:text-base">
                 <span className="mr-2">📱</span> Telegram
               </h3>
-              <a href="#" className="text-blue-400 hover:underline mb-2 block text-sm md:text-base">
+              <button onClick={handleClick} className="text-blue-400 hover:underline mb-2 block text-sm md:text-base">
                 {coin.telegram}
-              </a>
+              </button>
               <p className="text-gray-300 text-xs md:text-sm">Join the community discussion</p>
             </div>
 
@@ -327,9 +329,9 @@ const CoinDetailPage = ({ coinId }) => {
               <h3 className="font-medium mb-2 md:mb-3 flex items-center text-sm md:text-base">
                 <span className="mr-2">🌐</span> Website
               </h3>
-              <a href="#" className="text-blue-400 hover:underline mb-2 block text-sm md:text-base">
+              <button onClick={handleClick} className="text-blue-400 hover:underline mb-2 block text-sm md:text-base">
                 {coin.website}
-              </a>
+              </button>
               <p className="text-gray-300 text-xs md:text-sm">Official project website</p>
             </div>
 
@@ -337,9 +339,9 @@ const CoinDetailPage = ({ coinId }) => {
               <h3 className="font-medium mb-2 md:mb-3 flex items-center text-sm md:text-base">
                 <span className="mr-2">📄</span> Medium
               </h3>
-              <a href="#" className="text-blue-400 hover:underline mb-2 block text-sm md:text-base">
+              <button onClick={handleClick} className="text-blue-400 hover:underline mb-2 block text-sm md:text-base">
                 medium.com/{coin.symbol.toLowerCase()}
-              </a>
+              </button>
               <p className="text-gray-300 text-xs md:text-sm">Read detailed articles and updates</p>
             </div>
           </div>
@@ -361,9 +363,9 @@ const CoinDetailPage = ({ coinId }) => {
             </div>
 
             <div className="flex justify-end">
-              <a href="#" className="text-blue-400 hover:underline flex items-center text-xs md:text-sm">
+              <button onClick={handleClick} className="text-blue-400 hover:underline flex items-center text-xs md:text-sm">
                 View on Explorer <ExternalLink className="ml-1 h-3 w-3" />
-              </a>
+              </button>
             </div>
           </div>
 

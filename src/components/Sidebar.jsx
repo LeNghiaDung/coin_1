@@ -1,7 +1,9 @@
 import { Home, Star, Grid, Plus, Share, MessageSquare } from "lucide-react"
 
 const Sidebar = ({ isMobile, toggleMobileMenu }) => {
-  // If it's mobile view and the sidebar is not explicitly shown, don't render
+  const handleClick = () => {
+    console.log("Clicked")
+  }
   if (isMobile) return null
 
   return (
@@ -11,24 +13,24 @@ const Sidebar = ({ isMobile, toggleMobileMenu }) => {
       </div>
 
       <div className="flex flex-col items-center gap-6 flex-1">
-        <a href="#" className="text-gray-400 hover:text-white">
+        <button onClick={handleClick} className="text-gray-400 hover:text-white">
           <Home size={20} />
-        </a>
-        <a href="#" className="text-gray-400 hover:text-white">
+        </button>
+        <button onClick={handleClick} className="text-gray-400 hover:text-white">
           <Star size={20} />
-        </a>
-        <a href="#" className="text-gray-400 hover:text-white">
+        </button>
+        <button onClick={handleClick} className="text-gray-400 hover:text-white">
           <Grid size={20} />
-        </a>
-        <a href="#" className="text-gray-400 hover:text-white">
+        </button>
+        <button onClick={handleClick} className="text-gray-400 hover:text-white">
           <Plus size={20} />
-        </a>
-        <a href="#" className="text-gray-400 hover:text-white">
+        </button>
+        <button onClick={handleClick} className="text-gray-400 hover:text-white">
           <Share size={20} />
-        </a>
-        <a href="#" className="text-gray-400 hover:text-white">
+        </button>
+        <button onClick={handleClick} className="text-gray-400 hover:text-white">
           <MessageSquare size={20} />
-        </a>
+        </button>
       </div>
     </div>
   )
