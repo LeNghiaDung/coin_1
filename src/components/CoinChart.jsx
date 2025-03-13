@@ -121,9 +121,8 @@ const CoinChart = ({ coin }) => {
           <iframe
             src="https://www.tradingview.com/widgetembed/?symbol=POM/USDT&interval=15"
             style={{ width: "100%", height: "100%" }}
-            frameBorder="0"
+            title="UniqueTitleForIFrame"
             allowTransparency="true"
-            scrolling="no"
             allowFullScreen
           />
         </div>
