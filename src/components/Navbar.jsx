@@ -1,72 +1,30 @@
-import { ChevronDown } from "lucide-react"
+import { Search, Moon } from "lucide-react"
 
-export default function Navbar() {
+const Navbar = () => {
   return (
-    <div className="flex items-center px-4 py-2 border-b border-gray-800 overflow-x-auto scrollbar-hide">
-      <div className="flex items-center space-x-2 text-sm">
-        <div className="flex items-center space-x-1">
-          <span className="text-orange-500">🔥</span>
-          <span className="font-medium">Trending</span>
-          <ChevronDown className="h-4 w-4 text-gray-500" />
+    <div className="bg-[#0B0E17] px-4 py-3 flex items-center justify-between border-b border-[#1F2937]">
+      {/* Logo and search section */}
+      <div className="flex items-center flex-1">
+        <div className="w-8 h-8 rounded-full bg-yellow-500 flex items-center justify-center text-black font-bold mr-4">
+          C
         </div>
-        <span className="text-red-500">-10%</span>
-        <span className="text-gray-500">#8</span>
-        <div className="flex items-center space-x-1">
-          <div className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center">
-            <span className="text-xs">🐸</span>
-          </div>
-          <span>PEPE</span>
-          <span className="text-green-500">8.31%</span>
-        </div>
-        <span className="text-gray-500">#9</span>
-        <div className="flex items-center space-x-1">
-          <div className="w-5 h-5 rounded-full bg-orange-300 flex items-center justify-center">
-            <span className="text-xs">🐶</span>
-          </div>
-          <span>SWIF</span>
-          <span className="text-red-500">-1.79%</span>
-        </div>
-        <span className="text-gray-500">#10</span>
-        <div className="flex items-center space-x-1">
-          <div className="w-5 h-5 rounded-full bg-gray-300 flex items-center justify-center">
-            <span className="text-xs">🐧</span>
-          </div>
-          <span>PENGU</span>
-          <span className="text-red-500">-1.32%</span>
-        </div>
-        <span className="text-gray-500">#11</span>
-        <div className="flex items-center space-x-1">
-          <div className="w-5 h-5 rounded-full bg-gray-700 flex items-center justify-center">
-            <span className="text-xs">₮</span>
-          </div>
-          <span>TRISIG</span>
-          <span className="text-green-500">133.00%</span>
-        </div>
-        <span className="text-gray-500">#12</span>
-        <div className="flex items-center space-x-1">
-          <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center">
-            <span className="text-xs">🪙</span>
-          </div>
-          <span>TOSHI</span>
-          <span className="text-green-500">18.62%</span>
-        </div>
-        <span className="text-gray-500">#13</span>
-        <div className="flex items-center space-x-1">
-          <div className="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center">
-            <span className="text-xs">🐝</span>
-          </div>
-          <span>swarms</span>
-          <span className="text-green-500">2.00%</span>
-        </div>
-        <span className="text-gray-500">#14</span>
-        <div className="flex items-center space-x-1">
-          <div className="w-5 h-5 rounded-full bg-yellow-300 flex items-center justify-center">
-            <span className="text-xs">🥚</span>
-          </div>
-          <span>EGGS</span>
+        <div className="relative flex-1 max-w-md">
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+          <input
+            type="text"
+            placeholder="Search"
+            className="w-full bg-[#1F2937] rounded-full py-2 pl-10 pr-4 text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-yellow-500"
+          />
         </div>
       </div>
+
+      {/* Theme toggle */}
+      <button className="ml-4">
+        <Moon className="h-5 w-5 text-gray-400" />
+      </button>
     </div>
   )
 }
+
+export default Navbar
 
