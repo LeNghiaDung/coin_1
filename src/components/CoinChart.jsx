@@ -2,16 +2,16 @@
 import { ArrowLeft } from "lucide-react"
 
 export default function CoinChart({ symbol, onBack }) {
-  const getChartImageUrl = (symbol) => {
-    // const chartImages = {
-    //   POM: "https://i.imgur.com/JRCgQZs.png",
-    //   SPX: "https://i.imgur.com/8XMTfyv.png",
-    //   BLACK: "https://i.imgur.com/vD8ywbO.png",
-    //   PONGO: "https://i.imgur.com/L5hQPzf.png",
-    //   UNO: "https://i.imgur.com/2YHhwBj.png",
-    //   BPEP: "https://i.imgur.com/JRCgQZs.png",
-    // }
-  }
+  // const getChartImageUrl = (symbol) => {
+  //   // const chartImages = {
+  //   //   POM: "https://i.imgur.com/JRCgQZs.png",
+  //   //   SPX: "https://i.imgur.com/8XMTfyv.png",
+  //   //   BLACK: "https://i.imgur.com/vD8ywbO.png",
+  //   //   PONGO: "https://i.imgur.com/L5hQPzf.png",
+  //   //   UNO: "https://i.imgur.com/2YHhwBj.png",
+  //   //   BPEP: "https://i.imgur.com/JRCgQZs.png",
+  //   // }
+  // }
   return (
     <div className="w-full">
       {/* Back button */}

@@ -1,6 +1,10 @@
 import { ChevronRight, ChevronDown } from "lucide-react"
-
+import { useState } from "react"
 export default function Footer() {
+  const [selectedCoin, setSelectedCoin] = useState(null)
+  const handleClick = (symbol) => {
+    setSelectedCoin(symbol)
+  }
   return (
     <div className="px-4 py-6 space-y-6 border-t border-gray-800">
       {/* Pagination */}
@@ -33,24 +37,24 @@ export default function Footer() {
       {/* Section Info */}
       <div className="text-gray-400 text-sm">
         Find section info here.{" "}
-        <a href="#" className="text-blue-500 hover:underline">
+        <button onClick={handleClick} className="text-blue-500 hover:underline">
           Read More
-        </a>
+        </button>
       </div>
 
       {/* Bottom Footer */}
       <div className="flex items-center justify-between pt-4 border-t border-gray-800">
         <div className="text-gray-400 text-sm">© 2025 CoinMun</div>
         <div className="flex items-center space-x-6">
-          <a href="#" className="text-gray-400 hover:text-white text-sm">
+          <button onClick={handleClick} className="text-gray-400 hover:text-white text-sm">
             Advertise
-          </a>
-          <a href="#" className="text-gray-400 hover:text-white text-sm">
+          </button>
+          <button onClick={handleClick} className="text-gray-400 hover:text-white text-sm">
             Listing
-          </a>
-          <a href="#" className="text-gray-400 hover:text-white text-sm">
+          </button>
+          <button onClick={handleClick} className="text-gray-400 hover:text-white text-sm">
             Support
-          </a>
+          </button>
           <div className="relative group">
             <button className="flex items-center space-x-1 text-gray-400 hover:text-white text-sm">
               <span>Legal</span>
@@ -59,7 +63,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="flex items-center space-x-4">
-          <a href="#" className="text-gray-400 hover:text-white">
+          <button onClick={handleClick} className="text-gray-400 hover:text-white">
             <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M23 3.00005C22.0424 3.67552 20.9821 4.19216 19.86 4.53005C19.2577 3.83756 18.4573 3.34674 17.567 3.12397C16.6767 2.90121 15.7395 2.95724 14.8821 3.2845C14.0247 3.61176 13.2884 4.19445 12.773 4.95376C12.2575 5.71308 11.9877 6.61238 12 7.53005V8.53005C10.2426 8.57561 8.50127 8.18586 6.93101 7.39549C5.36074 6.60513 4.01032 5.43868 3 4.00005C3 4.00005 -1 13 8 17C5.94053 18.398 3.48716 19.099 1 19C10 24 21 19 21 7.50005C20.9991 7.2215 20.9723 6.94364 20.92 6.67005C21.9406 5.66354 22.6608 4.39276 23 3.00005Z"
@@ -69,8 +73,8 @@ export default function Footer() {
                 strokeLinejoin="round"
               />
             </svg>
-          </a>
-          <a href="#" className="text-gray-400 hover:text-white">
+          </button>
+          <button onClick={handleClick} className="text-gray-400 hover:text-white">
             <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M22.1 11.5C22.1 16.7467 17.8467 21 12.6 21L12.1 20.9999L11.6 21C6.35329 21 2.1 16.7467 2.1 11.5C2.1 6.25329 6.35329 2 11.6 2L12.1 2.00008L12.6 2C17.8467 2 22.1 6.25329 22.1 11.5Z"
@@ -87,7 +91,7 @@ export default function Footer() {
                 strokeLinejoin="round"
               />
             </svg>
-          </a>
+          </button>
         </div>
       </div>
     </div>
