@@ -1,7 +1,7 @@
-
 import { useState, useEffect } from "react"
-import { ArrowUp, ArrowDown, ExternalLink } from "lucide-react"
+import { ArrowUp, ArrowDown, ExternalLink, Copy, Share2, Settings } from "lucide-react"
 import CoinChart from "./CoinChart"
+
 const handleClick = () => {
   console.log("Clicked")
 }
@@ -74,7 +74,7 @@ const coinData = {
   // Add more coins as needed
 }
 
-const CoinDetailPage = ({ coinId }) => {
+const CoinDetail = ({ coinId }) => {
   const [coin, setCoin] = useState(null)
   const [loading, setLoading] = useState(true)
   const [activeTab, setActiveTab] = useState("overview")
@@ -412,5 +412,5 @@ const CoinDetailPage = ({ coinId }) => {
   )
 }
 
-export default CoinDetailPage
+export default CoinDetail
 

@@ -1,28 +1,47 @@
-import { Search, Moon } from "lucide-react"
+import { Menu, Sun, Moon } from "lucide-react"
+import Search from "./Search"
+import { useTheme } from "../context/ThemeContext"
 
-const Navbar = () => {
+const Navbar = ({ toggleMobileMenu }) => {
+  const { theme, toggleTheme } = useTheme()
+
   return (
-    <div className="bg-[#0B0E17] px-4 py-3 flex items-center justify-between border-b border-[#1F2937]">
-      {/* Logo and search section */}
-      <div className="flex items-center flex-1">
-        <div className="w-8 h-8 rounded-full bg-yellow-500 flex items-center justify-center text-black font-bold mr-4">
-          C
-        </div>
-        <div className="relative flex-1 max-w-md">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-          <input
-            type="text"
-            placeholder="Search"
-            className="w-full bg-[#1F2937] rounded-full py-2 pl-10 pr-4 text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-yellow-500"
-          />
+    <nav className={`sticky top-0 z-30 w-full border-b border-gray-800 ${
+      theme === 'light' ? 'bg-white' : 'bg-[#131722]'
+    }`}>
+      <div className="max-w-[1600px] mx-auto px-4 md:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Left section */}
+          <div className="flex items-center gap-4 flex-1">
+            <button
+              onClick={toggleMobileMenu}
+              className="lg:hidden p-2 rounded-lg hover:bg-gray-700/50 transition-colors"
+            >
+              <Menu className="h-5 w-5" />
+            </button>
+            <div className="max-w-md w-full">
+              <Search />
+            </div>
+          </div>
+
+          {/* Right section */}
+          <div className="flex items-center">
+            <button
+              onClick={toggleTheme}
+              className={`p-2 rounded-full hover:bg-gray-700/50 transition-colors ${
+                theme === 'light' ? 'text-gray-700' : 'text-gray-300'
+              }`}
+            >
+              {theme === 'dark' ? (
+                <Sun className="h-5 w-5" />
+              ) : (
+                <Moon className="h-5 w-5" />
+              )}
+            </button>
+          </div>
         </div>
       </div>
-
-      {/* Theme toggle */}
-      <button className="ml-4">
-        <Moon className="h-5 w-5 text-gray-400" />
-      </button>
-    </div>
+    </nav>
   )
 }
 

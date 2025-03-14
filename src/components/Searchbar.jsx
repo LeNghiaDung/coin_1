@@ -1,5 +1,4 @@
-import { Search, User, Moon } from "lucide-react"
-
+import { Search, User, Moon } from "lucide-react";
 export default function Searchbar() {
   return (
     <div className="flex items-center justify-between px-4 py-3">

@@ -2,182 +2,134 @@
 
 import { useState } from "react"
 import {
-  ChevronDown,
   Share2,
-  Globe,
-  Twitter,
-  MessageCircle,
-  BarChart2,
-  TrendingUp,
   Settings,
-  ZoomIn,
-  Maximize2,
 } from "lucide-react"
 
 const CoinChart = ({ coin }) => {
   const [timeframe, setTimeframe] = useState("15m")
-  const [showFaq, setShowFaq] = useState(false)
-
-  const timeframes = [
-    { value: "1s", label: "1s" },
-    { value: "1m", label: "1m" },
-    { value: "5m", label: "5m" },
-    { value: "15m", label: "15m" },
-    { value: "1h", label: "1h" },
-    { value: "4h", label: "4h" },
-    { value: "1d", label: "1D" },
-  ]
-
-  const faqQuestions = [
-    { question: "What is the current price of 1 POM token?", answer: `The current price is ${coin?.price}` },
-    {
-      question: "How much POM tokens can I purchase with $100 USD?",
-      answer: "Based on the current price, you can purchase approximately 31,250 POM tokens with $100 USD.",
-    },
-    { question: "What is the market cap of POM coin?", answer: `The current market cap is ${coin?.marketCap}` },
-    { question: "What is the fully diluted valuation (FDV) of POM coin?", answer: `The current FDV is ${coin?.fdv}` },
-    { question: "What is the contract address for POM (POM) on Bsc?", answer: coin?.contractAddress },
-    { question: "What is the daily trading volume of POM (POM)?", answer: `The 24h trading volume is ${coin?.volume}` },
-    { question: "What is the liquidity of POM (POM)?", answer: "The current liquidity pool value is $479,277" },
-    { question: "How do I buy POM tokens?", answer: "You can buy POM tokens on PancakeSwap using BNB." },
-    {
-      question: "How to add POM (POM) to MetaMask?",
-      answer: "Click the MetaMask button above or manually import the token contract address.",
-    },
-  ]
+  
+  const timeframes = ["1s", "1m", "5m", "15m", "1h", "4h", "D"]
 
   return (
-    <div className="flex flex-col space-y-4 md:space-y-6">
-      {/* Chart section */}
-      <div className="bg-[#0d1117] rounded-lg overflow-hidden">
-        {/* Chart header */}
-        <div className="flex items-center justify-between p-2 md:p-4 border-b border-gray-800">
-          <div className="flex items-center space-x-2 md:space-x-4">
-            <div className="flex items-center">
-              <img
-                src={coin?.icon || "/placeholder.svg?height=32&width=32"}
-                alt={coin?.name}
-                className="w-6 h-6 md:w-8 md:h-8 rounded-full"
-              />
-              <div className="ml-2">
-                <h2 className="font-bold text-sm md:text-base">{coin?.name}</h2>
-                <p className="text-xs md:text-sm text-gray-400">{coin?.symbol}</p>
-              </div>
-            </div>
-            <div className="text-xs md:text-sm px-1.5 py-0.5 md:px-2 md:py-1 bg-gray-800 rounded">
-              #{coin?.rank || "37"}
-            </div>
-          </div>
-          <div className="flex items-center space-x-1 md:space-x-2">
-            <button className="p-1 md:p-2 hover:bg-gray-800 rounded-md">
-              <Share2 className="w-3 h-3 md:w-4 md:h-4" />
-            </button>
-            <button className="p-1 md:p-2 hover:bg-gray-800 rounded-md">
-              <Globe className="w-3 h-3 md:w-4 md:h-4" />
-            </button>
-            <button className="p-1 md:p-2 hover:bg-gray-800 rounded-md">
-              <Twitter className="w-3 h-3 md:w-4 md:h-4" />
-            </button>
-            <button className="p-1 md:p-2 hover:bg-gray-800 rounded-md">
-              <MessageCircle className="w-3 h-3 md:w-4 md:h-4" />
-            </button>
-          </div>
-        </div>
-
+    <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 lg:gap-6">
+      {/* Chart Section - Takes up 3 columns */}
+      <div className="lg:col-span-3 bg-[#1E222D] rounded-lg overflow-hidden">
         {/* Chart controls */}
-        <div className="flex items-center justify-between p-1 md:p-2 border-b border-gray-800 overflow-x-auto hide-scrollbar">
-          <div className="flex items-center space-x-1">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 border-b border-gray-800 gap-4 sm:gap-0">
+          <div className="flex items-center gap-2 overflow-x-auto hide-scrollbar w-full sm:w-auto">
             {timeframes.map((tf) => (
               <button
-                key={tf.value}
-                onClick={() => setTimeframe(tf.value)}
-                className={`px-2 py-1 text-xs rounded ${timeframe === tf.value ? "bg-blue-600" : "hover:bg-gray-800"}`}
+                key={tf}
+                onClick={() => setTimeframe(tf)}
+                className={`px-3 py-1 rounded whitespace-nowrap ${
+                  timeframe === tf 
+                    ? 'bg-gray-700 text-white' 
+                    : 'text-gray-400 hover:text-white'
+                }`}
               >
-                {tf.label}
+                {tf}
               </button>
             ))}
           </div>
-          <div className="flex items-center space-x-1 md:space-x-2">
-            <button className="p-1 md:p-2 hover:bg-gray-800 rounded-md">
-              <BarChart2 className="w-3 h-3 md:w-4 md:h-4" />
+          
+          <div className="flex items-center gap-2">
+            <button className="p-2 hover:bg-gray-700 rounded">
+              <Settings className="w-4 h-4" />
             </button>
-            <button className="p-1 md:p-2 hover:bg-gray-800 rounded-md">
-              <TrendingUp className="w-3 h-3 md:w-4 md:h-4" />
-            </button>
-            <button className="p-1 md:p-2 hover:bg-gray-800 rounded-md">
-              <Settings className="w-3 h-3 md:w-4 md:h-4" />
-            </button>
-            <button className="p-1 md:p-2 hover:bg-gray-800 rounded-md">
-              <ZoomIn className="w-3 h-3 md:w-4 md:h-4" />
-            </button>
-            <button className="p-1 md:p-2 hover:bg-gray-800 rounded-md">
-              <Maximize2 className="w-3 h-3 md:w-4 md:h-4" />
+            <button className="p-2 hover:bg-gray-700 rounded">
+              <Share2 className="w-4 h-4" />
             </button>
           </div>
         </div>
 
-        {/* TradingView Chart - responsive height */}
-        <div className="w-full h-[300px] md:h-[400px] lg:h-[500px] relative">
+        {/* TradingView Chart */}
+        <div className="w-full h-[300px] sm:h-[400px] lg:h-[600px]">
           <iframe
             src="https://www.tradingview.com/widgetembed/?symbol=POM/USDT&interval=15"
             style={{ width: "100%", height: "100%" }}
-            title="UniqueTitleForIFrame"
+            title="TradingView Chart"
             allowTransparency="true"
             allowFullScreen
           />
         </div>
       </div>
 
-      {/* Stats Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
-        <div className="bg-[#1a1f27] p-2 md:p-4 rounded-lg">
-          <p className="text-xs md:text-sm text-gray-400">Market Cap</p>
-          <p className="text-sm md:text-lg font-bold">{coin?.marketCap || "$2.69M"}</p>
-        </div>
-        <div className="bg-[#1a1f27] p-2 md:p-4 rounded-lg">
-          <p className="text-xs md:text-sm text-gray-400">FDV</p>
-          <p className="text-sm md:text-lg font-bold">{coin?.fdv || "$2.69M"}</p>
-        </div>
-        <div className="bg-[#1a1f27] p-2 md:p-4 rounded-lg">
-          <p className="text-xs md:text-sm text-gray-400">24h Volume</p>
-          <p className="text-sm md:text-lg font-bold">{coin?.volume || "$319,155"}</p>
-        </div>
-        <div className="bg-[#1a1f27] p-2 md:p-4 rounded-lg">
-          <p className="text-xs md:text-sm text-gray-400">Liquidity</p>
-          <p className="text-sm md:text-lg font-bold">$479,277</p>
-        </div>
-      </div>
-
-      {/* FAQ Section */}
-      <div className="bg-[#1a1f27] rounded-lg p-3 md:p-4">
-        <button
-          className="flex items-center justify-between w-full text-left font-bold mb-2 md:mb-4 text-sm md:text-base"
-          onClick={() => setShowFaq(!showFaq)}
-        >
-          <span>POM Live Price & FAQs</span>
-          <ChevronDown
-            className={`w-4 h-4 md:w-5 md:h-5 transform transition-transform ${showFaq ? "rotate-180" : ""}`}
-          />
-        </button>
-
-        {showFaq && (
-          <div className="space-y-3 md:space-y-4">
-            {faqQuestions.map((faq, index) => (
-              <div key={index} className="border-b border-gray-800 pb-2 md:pb-4">
-                <button className="flex items-center justify-between w-full text-left text-xs md:text-sm hover:text-gray-300">
-                  <span>{faq.question}</span>
-                  <ChevronDown className="w-3 h-3 md:w-4 md:h-4" />
-                </button>
-              </div>
-            ))}
+      {/* Stats Section - Takes up 1 column */}
+      <div className="lg:col-span-1 space-y-4">
+        {/* Vote Button */}
+        <div className="bg-[#1E222D] p-4 rounded-lg">
+          <div className="flex items-center justify-between mb-4">
+            <span className="text-gray-400">Votes</span>
+            <span className="text-gray-400 flex items-center gap-1">
+              <span>24h</span>
+            </span>
           </div>
-        )}
-      </div>
+          <button className="w-full bg-[#5b4dff] hover:bg-[#4a3ef7] text-white py-3 rounded-lg flex items-center justify-center gap-2">
+            🚀 Vote for BLACK
+          </button>
+        </div>
 
-      {/* Categories */}
-      <div className="flex flex-wrap gap-2">
-        <div className="bg-[#1a1f27] px-3 py-1.5 md:px-4 md:py-2 rounded-md text-xs md:text-sm">Bsc Ecosystem</div>
-        <div className="bg-[#1a1f27] px-3 py-1.5 md:px-4 md:py-2 rounded-md text-xs md:text-sm">Memes</div>
+        {/* Market Cap & FDV */}
+        <div className="grid grid-cols-2 gap-4">
+          <div className="bg-[#1E222D] p-4 rounded-lg">
+            <div className="text-xl sm:text-2xl font-bold">$5,608</div>
+            <div className="text-sm text-gray-400">Market Cap</div>
+          </div>
+          <div className="bg-[#1E222D] p-4 rounded-lg">
+            <div className="text-xl sm:text-2xl font-bold">$5,608</div>
+            <div className="text-sm text-gray-400">FDV</div>
+          </div>
+        </div>
+
+        {/* Price Changes */}
+        <div className="grid grid-cols-2 gap-4">
+          <div className="bg-[#1E222D] p-4 rounded-lg">
+            <div className="text-base sm:text-lg">--</div>
+            <div className="text-sm text-gray-400">1h Change</div>
+          </div>
+          <div className="bg-[#1E222D] p-4 rounded-lg">
+            <div className="text-base sm:text-lg text-green-500">2.33%</div>
+            <div className="text-sm text-gray-400">6h Change</div>
+          </div>
+        </div>
+
+        <div className="bg-[#1E222D] p-4 rounded-lg">
+          <div className="text-base sm:text-lg text-red-500">-2.58%</div>
+          <div className="text-sm text-gray-400">24h Change</div>
+        </div>
+
+        {/* Supply & Volume Info */}
+        <div className="bg-[#1E222D] p-4 rounded-lg space-y-6">
+          <div>
+            <div className="flex justify-between items-center mb-1">
+              <span className="text-gray-400">Total Supply</span>
+              <span>999.63 K</span>
+            </div>
+            <div className="h-1.5 bg-[#2c3139] rounded-full">
+              <div className="h-full w-full bg-[#5b4dff] rounded-full"></div>
+            </div>
+            <div className="flex justify-between items-center mt-1">
+              <span className="text-sm text-gray-400">Circ. Supply 100.00%</span>
+              <span className="text-sm">999.63 K</span>
+            </div>
+          </div>
+
+          <div className="flex justify-between items-center">
+            <span className="text-gray-400">24h Volume</span>
+            <span>$302</span>
+          </div>
+
+          <div className="flex justify-between items-center">
+            <span className="text-gray-400">Volume / MC</span>
+            <span>0.054</span>
+          </div>
+
+          <div className="flex justify-between items-center">
+            <span className="text-gray-400">Total Liquidity</span>
+            <span>$3,580</span>
+          </div>
+        </div>
       </div>
     </div>
   )
